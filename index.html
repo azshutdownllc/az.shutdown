@@ -1,0 +1,217 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AZ Shutdown | Soccer Training & Development</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0a0a0a;
+      --bg2:#121212;
+      --card:#171717;
+      --text:#f5f5f5;
+      --muted:#b6b6b6;
+      --line:#2a2a2a;
+      --accent:#ffffff;
+      --accent2:#d9d9d9;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:'Montserrat',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1120px,92vw);margin:0 auto}
+    .nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(14px);
+      background:rgba(10,10,10,.82);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:16px}
+    .brand{font-weight:900;letter-spacing:.12em;text-transform:uppercase;font-size:1rem}
+    .nav-links{display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end}
+    .nav-links a{color:var(--muted);font-size:.92rem;font-weight:600}
+    .nav-links a:hover{color:var(--text)}
+    .hero{
+      min-height:88vh;display:grid;align-items:center;
+      background:
+        linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.72)),
+        url('https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;padding:88px 0}
+    .eyebrow{color:var(--accent2);text-transform:uppercase;letter-spacing:.2em;font-size:.78rem;font-weight:700;margin-bottom:16px}
+    h1{font-size:clamp(3rem,7vw,5.8rem);line-height:.95;margin:0 0 18px;font-weight:900;text-transform:uppercase}
+    .subheadline{font-size:1.08rem;color:var(--muted);max-width:620px;margin:0 0 28px}
+    .cta{display:flex;gap:14px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:14px 22px;border-radius:999px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;
+      border:1px solid var(--line);transition:.2s ease;min-width:160px
+    }
+    .btn.primary{background:var(--accent);color:#000}
+    .btn.primary:hover{transform:translateY(-2px);background:#eaeaea}
+    .btn.secondary{background:transparent;color:var(--text)}
+    .btn.secondary:hover{transform:translateY(-2px);border-color:#555}
+    .hero-card{
+      align-self:end;background:rgba(18,18,18,.85);border:1px solid rgba(255,255,255,.08);
+      border-radius:24px;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,.35)
+    }
+    .hero-card h3{margin:0 0 12px;font-size:1.2rem;text-transform:uppercase;letter-spacing:.08em}
+    .hero-card p{margin:0;color:var(--muted)}
+    section{padding:84px 0}
+    .section-title{font-size:2rem;line-height:1.1;margin:0 0 16px;text-transform:uppercase;letter-spacing:.05em}
+    .section-copy{color:var(--muted);max-width:760px;margin:0 0 34px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:26px
+    }
+    .card h3{margin:0 0 10px;font-size:1.1rem;text-transform:uppercase}
+    .card p,.card li{color:var(--muted)}
+    .price{font-size:1.6rem;font-weight:900;margin:6px 0 10px}
+    .focus-list{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;padding:0;margin:0;list-style:none}
+    .focus-list li{padding:16px 18px;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(255,255,255,.02);font-weight:600}
+    .contact-row{display:flex;gap:16px;flex-wrap:wrap}
+    .contact-pill{padding:14px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);font-weight:700}
+    .footer{padding:30px 0;border-top:1px solid rgba(255,255,255,.08);color:var(--muted);text-align:center}
+    .accent-line{width:72px;height:4px;background:#fff;border-radius:999px;margin:18px 0 26px}
+    @media (max-width:900px){
+      .hero-grid,.grid-2,.grid-3{grid-template-columns:1fr}
+      h1{font-size:clamp(2.6rem,12vw,4.8rem)}
+      .focus-list{grid-template-columns:1fr}
+      .nav-inner{flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">AZ Shutdown</div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#focus">Focus Areas</a>
+        <a href="#choose">Why Us</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Arizona Soccer Development</div>
+          <h1>Train Hard.<br>Compete Harder.</h1>
+          <p class="subheadline">AZ Shutdown provides elite soccer training, conditioning, and player development for youth and high school athletes looking to improve their game.</p>
+          <div class="cta">
+            <a class="btn primary" href="#contact">Book a Session</a>
+            <a class="btn secondary" href="#contact">Contact Us</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h3>Built for Performance</h3>
+          <p>Clean, competitive training designed to develop speed, strength, technical skill, and confidence on the field.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container grid-2">
+        <div>
+          <div class="section-title">About AZ Shutdown</div>
+          <div class="accent-line"></div>
+          <p class="section-copy">AZ Shutdown is dedicated to helping athletes improve their speed, strength, conditioning, technical skills, and confidence on the field. Our goal is to help every player reach their highest potential through high-quality training sessions.</p>
+        </div>
+        <div class="card">
+          <h3>Training Photos</h3>
+          <p>Use action shots of soccer players training, speed and agility drills, high school athletes, Arizona soccer fields, and conditioning workouts.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" style="background:var(--bg2);">
+      <div class="container">
+        <div class="section-title">Services</div>
+        <div class="accent-line"></div>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Solo Training</h3>
+            <p>1-on-1 personalized coaching</p>
+            <div class="price">$45</div>
+            <p>per session</p>
+          </div>
+          <div class="card">
+            <h3>Group Training</h3>
+            <p>3 players: $30 per player</p>
+            <p>4 players: $25 per player</p>
+            <p>5 players: $20 per player</p>
+          </div>
+          <div class="card">
+            <h3>Focused Development</h3>
+            <p>Sessions designed to push athletes in a competitive environment while building real game performance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="focus">
+      <div class="container">
+        <div class="section-title">Training Focus Areas</div>
+        <div class="accent-line"></div>
+        <ul class="focus-list">
+          <li>Speed & Agility</li>
+          <li>Conditioning</li>
+          <li>Ball Mastery</li>
+          <li>Passing & Receiving</li>
+          <li>Shooting & Finishing</li>
+          <li>Defensive Techniques</li>
+          <li>Soccer IQ</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="choose" style="background:var(--bg2);">
+      <div class="container">
+        <div class="section-title">Why Choose AZ Shutdown</div>
+        <div class="accent-line"></div>
+        <div class="grid-2">
+          <div class="card"><h3>Experienced Soccer Training</h3><p>Professional coaching built around development and performance.</p></div>
+          <div class="card"><h3>Personalized Development Plans</h3><p>Each athlete gets a focused approach that matches their goals and current level.</p></div>
+          <div class="card"><h3>Competitive Environment</h3><p>Training sessions challenge players to raise intensity and sharpen execution.</p></div>
+          <div class="card"><h3>Affordable Pricing</h3><p>Clear session pricing designed to keep high-quality training accessible.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container grid-2">
+        <div>
+          <div class="section-title">Contact</div>
+          <div class="accent-line"></div>
+          <div class="contact-row">
+            <a class="contact-pill" href="tel:623-806-2568">Phone: 623-806-2568</a>
+            <a class="contact-pill" href="mailto:az.shutdown.llc@gmail.com">Email: az.shutdown.llc@gmail.com</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Ready to train?</h3>
+          <p>Book a session and start building speed, strength, and confidence with AZ Shutdown.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">AZ Shutdown © 2026 · Train Hard. Compete Harder.</footer>
+</body>
+</html>
